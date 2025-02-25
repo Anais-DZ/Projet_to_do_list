@@ -68,7 +68,7 @@
 
 
     //include des vues
-    include './view/header.php';
+    include './controller_header.php';
     include './view/view_accueil.php';
     include './view/footer.php';
 ?>

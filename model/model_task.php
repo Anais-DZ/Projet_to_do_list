@@ -20,6 +20,8 @@ function writteTask($bdd, $tache, $description, $date) {
 
 }
 
+//TODO écrire une fonction pour que l'utilisateur accède à sa to do list quand il se connecte
+
 function afficherTask ($bdd) {
 
     try {

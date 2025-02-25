@@ -68,7 +68,7 @@
     }
 
     //include des vues
-    include './view/header.php';
+    include './controller_header.php'; //mettre le controller_header au lieu du view header car le controller a déjà view
     include './view/view_connexion.php';
     include './view/footer.php';
 ?>

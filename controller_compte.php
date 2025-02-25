@@ -18,7 +18,7 @@ if(isset($_SESSION["id"]) && !empty($_SESSION["id"])) {
 }
 
     //include des vues
-    include './view/header.php';
+    include './controller_header.php';
     include './view/view_compte.php';
     include './view/footer.php';
 ?>
