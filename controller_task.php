@@ -35,7 +35,7 @@
     }
 
     $bdd = BDDconnect();
-    $data = afficherTask($bdd);
+    $data = afficherTaskUtilisateur($bdd, $id_user);
 
     foreach ($data as $task) {
         $tasksList = $tasksList."<li>{$task['name_task']} : {$task['content_task']} <h6>{$task['date_task']}</h6></li>";

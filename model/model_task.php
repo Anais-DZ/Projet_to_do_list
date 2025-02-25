@@ -22,21 +22,43 @@ function writteTask($bdd, $tache, $description, $date) {
 
 //TODO écrire une fonction pour que l'utilisateur accède à sa to do list quand il se connecte
 
-function afficherTask ($bdd) {
-
+function afficherTaskUtilisateur($bdd, $id_user) {
     try {
-    // Récupération de toutes les tâches après insertion par ordre décroissant
-    $req = $bdd->prepare("SELECT name_task, content_task, date_task FROM tasks ORDER BY date_task");
+        // Récupération des tâches de l'utilisateur connecté
+        $req = $bdd->prepare("SELECT name_task, content_task, date_task FROM tasks WHERE id_user = ? ORDER BY date_task ");
 
-    //exécute la requête
-    $req->execute();
+        // Liaison du paramètre
+        $req->bindParam(1, $id_user, PDO::PARAM_INT);
 
-    $data = $req->fetchAll();
+        // Exécution de la requête
+        $req->execute();
 
-    return $data; 
+        // Récupération des résultats
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        return $data; 
 
     } catch (EXCEPTION $error) { 
         return $error->getMessage();
     }
 }
+
+
+// function afficherTask ($bdd) {
+
+//     try {
+//     // Récupération de toutes les tâches après insertion 
+//     $req = $bdd->prepare("SELECT name_task, content_task, date_task FROM tasks ORDER BY date_task");
+
+//     //exécute la requête
+//     $req->execute();
+
+//     $data = $req->fetchAll();
+
+//     return $data; 
+
+//     } catch (EXCEPTION $error) { 
+//         return $error->getMessage();
+//     }
+// }
 ?>
