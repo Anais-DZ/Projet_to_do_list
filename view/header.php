@@ -11,4 +11,21 @@
 <body style="display: flex; flex-direction: column; align-items: center;">
     <header>
         <h1>TO DO LIST</h1>
+        <nav style="justify-self: center;">
+            <a href="controller_accueil.php">Accueil</a>
+
+            <?php if (!isset($_SESSION["id"])) : ?>
+                
+                <a href="controller_connexion.php">Connexion</a>
+
+            <?php else : ?>
+
+            <a href="controller_task.php">Ma liste</a>   
+            <a href="controller_compte.php">Mon compte</a>
+            <a href="controller_deco.php">Déconnexion</a>
+
+            <?php endif; ?>
+
+            <!-- condition qui devrait être mis dans controller_header mais $liens ne fonctionne pas -->
+        </nav>
     </header>

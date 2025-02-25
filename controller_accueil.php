@@ -1,4 +1,7 @@
 <?php
+    // Je démarre ma session pour pouvoir y accéder et pour que le header se modifie (mettre sur tout les controllers)
+    session_start();
+
     //importer les fichiers que l'on vient de créer
     include './utils/functions.php';
 
@@ -37,6 +40,7 @@
                     $data = readUserByMail($bdd, $email);
 
                     if(empty($data)) {
+                        
                         //on appelle la fonction du model qui ajoute un article en BDD
                         $message = userAdd($bdd, $name, $firstname, $email, $password);
 

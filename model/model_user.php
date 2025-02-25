@@ -4,7 +4,6 @@
     //userAdd() : je crée la fonction qui me permettra d'ajouter un nouvel article en BDD
     function userAdd($bdd, $name, $firstname, $email, $password) {
         try {
-            //envoi de requête pour savoir si l'adresse mail existe déjà
             //envoi de requête SQL avec la méthode prepare()
             $req = $bdd->prepare("INSERT INTO users(`name_user`, `firstname_user`, `email_user`, `mdp_user`) VALUES (?, ?, ?, ?)");
 
@@ -28,12 +27,12 @@
     }
 
 
-    //fonction qui récupère un utilisateur par son mail
+    //fonction qui récupère un utilisateur par son mail et vérifie qu'il n'y a que ce mail là dans la BDD
     function readUserByMail($bdd, $email) {
-        try {
-
+        try {      
+            //envoi de requête pour savoir si l'adresse mail existe déjà
             //préparer la requête
-            $req = $bdd->prepare("SELECT email_user FROM users WHERE email_user = ? LIMIT 1 ");
+            $req = $bdd->prepare("SELECT id_user, name_user, firstname_user, email_user, mdp_user FROM users WHERE email_user = ? LIMIT 1 ");
 
             $req->bindParam(1, $email, PDO::PARAM_STR);
 
