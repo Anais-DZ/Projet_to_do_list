@@ -1,4 +1,8 @@
 <?php
+
+    // Je démarre ma $_SESSION pour pouvoir y accéder
+    session_start();
+    
     //importer les fichiers que l'on vient de créer
     include './utils/functions.php';
 
@@ -41,7 +45,7 @@
         $tasksList = $tasksList."<li>{$task['name_task']} : {$task['content_task']} <h6>{$task['date_task']}</h6></li>";
     }
 
-    include './view/header.php';
+    include './controller_header.php';
     include './view/view_ajoutTask.php';
     include './view/footer.php';
 ?>
